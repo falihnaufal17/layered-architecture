@@ -9,19 +9,12 @@ layered-architecture/
 │
 ├── src/
 │   ├── modules/ <-- daftar module
-│   │   ├── doctor/ <-- module
+│   │   ├── example/ <-- module
 │   │   │   ├── data-accesses/ <-- data layer, koneksi database dan model
 │   │   │   ├── controllers/ <-- business layer, logika bisnis
 │   │   │   ├── services/ <-- service layer, pengubung antar module
 │   │   │   ├── routes/ <-- route khusus /doctor
 │   │   │   └── package.json <-- dependency, such as lodash, mysql2, sequelize, etc
-│   │   │
-│   │   └── employee/
-│   │   │   ├── data-accesses/
-│   │   │   ├── controllers/
-│   │   │   ├── services/
-│   │   │   ├── routes/
-│   │   │   └── package.json
 │   │
 │   ├── app.ts <-- main app
 │
