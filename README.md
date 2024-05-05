@@ -26,9 +26,9 @@ layered-architecture/
 ## Getting Started
 1. clone repo `git clone git@github.com:falihnaufal17/layered-architecture.git`
 2. change directory `cd layered-architecture`
-3. run `npm install`
+3. run command `npm install`
 4. duplicate `.env.example` and rename it into `.env`
-5. run `npm start:dev`
+5. run command `npm start:dev`
 
 ## Deployment
-run `npm start`. It will remove build the application and run the server.
+Just run command `npm start`. It will remove build folder and rebuild the application and run the server.
