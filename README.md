@@ -11,9 +11,13 @@ layered-architecture/
 │   ├── modules/ <-- daftar module
 │   │   ├── example/ <-- module
 │   │   │   ├── data-accesses/ <-- data layer, koneksi database dan model
-│   │   │   ├── controllers/ <-- business layer, logika bisnis
+│   │   │   |   ├── dummies/ <-- dummy data
+│   │   │   |   └── models/ <-- medefinisikan model data
+│   │   │   ├── controllers/ <-- business layer, logika bisnis, handle I/O
 │   │   │   ├── services/ <-- service layer, pengubung antar module
-│   │   │   ├── routes/ <-- route khusus /doctor
+│   │   │   ├── routes/ <-- route
+│   │   │   ├── repositories/ <-- manipulasi data (find, insert, update, destroy)
+│   │   │   ├── dto/ <-- mendefinisikan struktur object yang akan dikirim atau diterima
 │   │   │   └── package.json <-- dependency, such as lodash, mysql2, sequelize, etc
 │   │
 │   ├── app.ts <-- main app
