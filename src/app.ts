@@ -1,40 +1,16 @@
-import http from 'http'
-import dotenv from 'dotenv'
-import { getByIdHandler, getHandler } from './modules/example/routes/handler';
+import express from 'express';
+import bodyParser from 'body-parser';
+import doctorRouter from './modules/example/routers/DoctorRouter';
 
-dotenv.config()
+const app = express();
+ 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-const port = process.env.PORT || 3000
+app.use('/example', doctorRouter)
 
-const app = http.createServer((request, response) => {
-  const reqURL = request.url;
-  const reqMethod = request.method;
-  const requestParams = request?.url?.split('?')[1];
-  const requestParamsObj = requestParams ? JSON.parse('{"' + decodeURI(requestParams).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}') : null;
-
-  switch (reqMethod) {
-    case 'GET':
-      if (reqURL === '/example/get') {
-        getHandler(request, response)
-      } else if (reqURL?.includes('/example/get') && requestParamsObj) {
-        const customRequest = {...request, ...requestParamsObj}
-
-        getByIdHandler(customRequest, response)
-      }
-    break;
-    default:
-      response.writeHead(200, {
-        'Content-Type': 'application/json'
-      });
-      response.write(
-        JSON.stringify({
-          message: 'Hello, is there anything help?'
-        })
-      );
-      response.end();
-  }
-});
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
-})
+  console.log(`Server is running on port ${port}`);
+});

@@ -1,8 +1,9 @@
 import { DoctorDTO } from "../dto/DoctorDTO";
 
 interface DoctorInterface {
-  getDoctors(): DoctorDTO[];
-  getDoctorById(id: number): DoctorDTO | null;
+  findAll(): Promise<DoctorDTO[]>;
+  findById(id: number): Promise<DoctorDTO | null>;
+  post(doctor: DoctorDTO): Promise<DoctorDTO>;
 }
 
 export default DoctorInterface;

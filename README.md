@@ -8,17 +8,19 @@
 layered-architecture/
 │
 ├── src/
+│   ├── configs/ <-- konfigurasi database, cache, bucket storage, dll
 │   ├── modules/ <-- daftar module
 │   │   ├── example/ <-- module
 │   │   │   ├── data-accesses/ <-- data layer, koneksi database dan model
 │   │   │   |   ├── dummies/ <-- dummy data
 │   │   │   |   └── models/ <-- medefinisikan model data
-│   │   │   ├── controllers/ <-- business layer, logika bisnis, handle I/O
-│   │   │   ├── services/ <-- service layer, pengubung antar module
+│   │   │   ├── controllers/ <-- handle I/O
+│   │   │   ├── services/ <-- menanangani logika bisnis
 │   │   │   ├── routes/ <-- route
-│   │   │   ├── repositories/ <-- manipulasi data (find, insert, update, destroy)
-│   │   │   ├── dto/ <-- mendefinisikan struktur object yang akan dikirim atau diterima
-│   │   │   └── package.json <-- dependency, such as lodash, mysql2, sequelize, etc
+│   │   │   ├── repositories/ <-- mengakses database, interaksi dengan layanan eksternal (contoh: API Eksternal)
+│   │   │   ├── dto/ <-- mendefinisikan struktur object I/O
+│   │   │   ├── interfaces/ <-- antarmuka
+│   │   │   └── package.json <-- dependency/library/package/command, such as lodash, mysql2, sequelize, etc
 │   │
 │   ├── app.ts <-- main app
 │
